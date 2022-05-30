@@ -35,7 +35,7 @@
     "posttest": "npm run lint"
   },
   "dependencies": {
-    "short-css-vars": "^1.2.0"
+    "@zonx/short-css-vars": "^1.2.0"
   },
   "devDependencies": {
     "@babel/helper-plugin-test-runner": "^7.10.4",

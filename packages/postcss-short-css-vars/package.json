@@ -36,7 +36,7 @@
   },
   "dependencies": {
     "postcss": "^7.0.32",
-    "short-css-vars": "^1.2.0"
+    "@zonx/short-css-vars": "^1.2.0"
   },
   "devDependencies": {
     "assume": "^2.2.0",
