@@ -1,5 +1,5 @@
 const postcss = require('postcss');
-const ShortCssVars = require('short-css-vars');
+const ShortCssVars = require('@zonx/short-css-vars');
 
 /**
  * PostCSS plugin to shorten lengthy CSS variable names
@@ -12,12 +12,12 @@ const ShortCssVars = require('short-css-vars');
  * @returns {postcss.Transformer} transformer
  */
 function plugin(options = {}) {
-  const { callback, ...opts } = options;
+  const {callback, ...opts} = options;
   const shortCssVars = new ShortCssVars(opts);
 
   return (root) => {
-    root.walkRules(rule => {
-      rule.walkDecls(decl => {
+    root.walkRules((rule) => {
+      rule.walkDecls((decl) => {
         decl.prop = shortCssVars.replaceName(decl.prop);
         decl.value = shortCssVars.replaceCss(decl.value);
       });
