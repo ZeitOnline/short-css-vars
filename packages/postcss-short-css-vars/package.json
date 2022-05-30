@@ -1,6 +1,6 @@
 {
   "name": "@zonx/postcss-short-css-vars",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Optimization plugin to shorten the names of CSS variables",
   "license": "MIT",
   "author": "@julians",
