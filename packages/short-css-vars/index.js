@@ -11,7 +11,7 @@ const reRef = /(,?\s*var\(\s*--)([\w-]+)(,\s*var.+)?/g;
  * @returns {string} encoded hash
  * @private
  */
-const defaultFormatter = name => stringHash(name).toString(36);
+const defaultFormatter = (name) => stringHash(name).toString(36);
 
 /**
  * Normalize ignore string/regexp to a function
@@ -28,10 +28,12 @@ function normalizeIgnore(ignore) {
       ignore = new RegExp(ignore);
     }
     if (ignore instanceof RegExp) {
-      return str => ignore.test(str);
+      return (str) => ignore.test(str);
     }
 
-    throw new Error(`'ignore' must be of type function, RegExp, or string. Received ${typeof ignore}`);
+    throw new Error(
+      `'ignore' must be of type function, RegExp, or string. Received ${typeof ignore}`,
+    );
   }
 
   return () => false;
@@ -55,31 +57,33 @@ function ShortCssVars(options = {}) {
   const renameMap = {};
   const collisionMap = {};
 
-  const shorten = name => {
+  const shorten = (name) => {
     if (ignore(name)) return name;
 
     const shortName = formatter(name);
-    renameMap[name] = shortName;
+    // renameMap[name] = shortName;
 
-    // Detect collisions
-    const existingName = collisionMap[shortName];
-    if (existingName && existingName !== name) {
-      throw new Error(`Short name '${shortName}' for '${name}' is already used for '${existingName}'`);
-    } else {
-      collisionMap[shortName] = name;
-    }
+    // // Detect collisions
+    // const existingName = collisionMap[shortName];
+    // if (existingName && existingName !== name) {
+    //   throw new Error(`Short name '${shortName}' for '${name}' is already used for '${existingName}'`);
+    // } else {
+    //   collisionMap[shortName] = name;
+    // }
 
     return shortName;
   };
 
-  const replaceDefs = css => css.replace(reDef, (_, dashes, name, colon) => {
-    return dashes + shorten(name) + colon;
-  });
+  const replaceDefs = (css) =>
+    css.replace(reDef, (_, dashes, name, colon) => {
+      return dashes + shorten(name) + colon;
+    });
 
-  const replaceRefs = css => css.replace(reRef, (_, start, name, nested) => {
-    const end = nested ? replaceRefs(nested) : '';
-    return start + shorten(name) + end;
-  });
+  const replaceRefs = (css) =>
+    css.replace(reRef, (_, start, name, nested) => {
+      const end = nested ? replaceRefs(nested) : '';
+      return start + shorten(name) + end;
+    });
 
   /**
    * Shortens the name part of a variable string
@@ -89,9 +93,10 @@ function ShortCssVars(options = {}) {
    * @param {string} varName - Variable name including -- prefix
    * @returns {string} short
    */
-  this.replaceName = varName => varName.replace(reName, (full, dashes, name) => {
-    return dashes + shorten(name);
-  });
+  this.replaceName = (varName) =>
+    varName.replace(reName, (full, dashes, name) => {
+      return dashes + shorten(name);
+    });
 
   /**
    * Shortens the names of variables throughout CSS
@@ -101,7 +106,7 @@ function ShortCssVars(options = {}) {
    * @param {string} css - Text containing CSS variables
    * @returns {string} shortened CSS
    */
-  this.replaceCss = css => replaceDefs(replaceRefs(css));
+  this.replaceCss = (css) => replaceDefs(replaceRefs(css));
 
   /**
    * Get a mapping of original names to shortened names
