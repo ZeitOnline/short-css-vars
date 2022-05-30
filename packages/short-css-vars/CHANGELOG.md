@@ -1,5 +1,9 @@
 # CHANGELOG
 
+### 1.2.0
+
+- Remove shortened names deduplication
+
 ### 1.1.0
 
 - Support for setting ignore as string ([#1])

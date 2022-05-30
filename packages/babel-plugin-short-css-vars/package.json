@@ -3,18 +3,19 @@
   "version": "1.1.0",
   "description": "Optimization plugin to shorten the names of CSS variables",
   "license": "MIT",
-  "author": "GoDaddy Operating Company, LLC",
+  "author": "@julians",
   "contributors": [
+    "Julian Stahnke <julian.stahnke@zeit.de>",
     "Andrew Gerard <agerard@godaddy.com>"
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/godaddy/short-css-vars.git"
+    "url": "git+https://github.com/zeitonline/short-css-vars.git"
   },
   "publishConfig": {
     "access": "public"
   },
-  "homepage": "https://github.com/godaddy/short-css-vars/packages/babel-plugin-short-css-vars#readme",
+  "homepage": "https://github.com/zeitonline/short-css-vars/packages/babel-plugin-short-css-vars#readme",
   "keywords": [
     "babel",
     "babel-plugin",

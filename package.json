@@ -25,18 +25,19 @@
     "name",
     "shorten"
   ],
-  "author": "GoDaddy Operating Company, LLC",
+  "author": "@julians",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/godaddy/short-css-vars.git"
+    "url": "git+ssh://git@github.com/zeitonline/short-css-vars.git"
   },
   "bugs": {
-    "url": "https://github.com/godaddy/short-css-vars/issues"
+    "url": "https://github.com/zeitonline/short-css-vars/issues"
   },
-  "homepage": "https://github.com/godaddy/short-css-vars#readme",
+  "homepage": "https://github.com/zeitonline/short-css-vars#readme",
   "devDependencies": {
     "lerna": "^3.22.1",
+    "prettier": "^2.6.2",
     "rimraf": "^3.0.2"
   }
 }
