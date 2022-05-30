@@ -26,4 +26,4 @@ function plugin(options = {}) {
   };
 }
 
-module.exports = postcss.plugin('postcss-short-css-vars', plugin);
+module.exports = postcss.plugin('@zonx/postcss-short-css-vars', plugin);
