@@ -1,5 +1,9 @@
 # CHANGELOG
 
+### 1.3.0
+
+- Support for variables declared in jsx style objects
+
 ### 1.1.0
 
 - Support for setting ignore as string ([#1])
